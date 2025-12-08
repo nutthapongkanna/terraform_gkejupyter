@@ -1,0 +1,20 @@
+proxy:
+  service:
+    type: LoadBalancer
+
+hub:
+  config:
+    JupyterHub:
+      admin_users:
+        - admin
+
+singleuser:
+  image:
+    name: jupyter/base-notebook
+    tag: latest
+
+  memory:
+    limit: 2G
+
+  cpu:
+    limit: 1
