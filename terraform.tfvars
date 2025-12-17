@@ -1,9 +1,6 @@
-#project_id=ชื่อโปรเจค
-project_id    = ""
+project_id    = "tlnk-infra-tor"
 region        = "asia-southeast1"
-zone          = "asia-southeast1-a"
-
-cluster_name  = "jhub-cluster"
-
+zone          = "asia-southeast1-b"
+cluster_name  = "gke-jhub-lab"
 node_count    = 2
-machine_type  = "e2-standard-4"
+machine_type  = "e2-standard-2"

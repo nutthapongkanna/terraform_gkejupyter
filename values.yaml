@@ -5,16 +5,12 @@ proxy:
 hub:
   config:
     JupyterHub:
-      admin_users:
-        - admin
+      admin_access: true
 
 singleuser:
-  image:
-    name: jupyter/base-notebook
-    tag: latest
-
   memory:
+    guarantee: 1G
     limit: 2G
-
   cpu:
+    guarantee: 0.5
     limit: 1

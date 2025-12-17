@@ -1,34 +1,34 @@
 variable "project_id" {
-  description = "GCP Project ID"
   type        = string
+  description = "GCP Project ID"
 }
 
 variable "region" {
-  description = "GCP Region"
   type        = string
+  description = "GCP region"
   default     = "asia-southeast1"
 }
 
 variable "zone" {
-  description = "GCP Zone"
   type        = string
-  default     = "asia-southeast1-a"
+  description = "GCP zone (เช่น asia-southeast1-b)"
+  default     = "asia-southeast1-b"
 }
 
 variable "cluster_name" {
-  description = "GKE Cluster Name"
   type        = string
-  default     = "jhub-cluster"
+  description = "GKE cluster name"
+  default     = "gke-jhub"
 }
 
 variable "node_count" {
-  description = "Node count"
   type        = number
+  description = "จำนวน node ใน node pool"
   default     = 2
 }
 
 variable "machine_type" {
-  description = "GCE Machine type"
   type        = string
+  description = "machine type ของ node pool"
   default     = "e2-standard-2"
 }
