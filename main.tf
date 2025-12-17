@@ -1,14 +1,21 @@
 # ---------------------------
+# main.tf
+# ---------------------------
+
+# ---------------------------
 # (Optional) Enable APIs
+# NOTE: เรา "เปิด" ได้ แต่ตอน destroy ไม่ปิด (กันพังโปรเจกต์ที่ยังใช้บริการอื่น)
 # ---------------------------
 resource "google_project_service" "container" {
-  project = var.project_id
-  service = "container.googleapis.com"
+  project            = var.project_id
+  service            = "container.googleapis.com"
+  disable_on_destroy = false
 }
 
 resource "google_project_service" "compute" {
-  project = var.project_id
-  service = "compute.googleapis.com"
+  project            = var.project_id
+  service            = "compute.googleapis.com"
+  disable_on_destroy = false
 }
 
 # ---------------------------
@@ -17,6 +24,9 @@ resource "google_project_service" "compute" {
 resource "google_container_cluster" "gke" {
   name     = var.cluster_name
   location = var.zone
+
+  # สำคัญ: ให้ destroy ลบ cluster ได้
+  deletion_protection = false
 
   remove_default_node_pool = true
   initial_node_count       = 1
